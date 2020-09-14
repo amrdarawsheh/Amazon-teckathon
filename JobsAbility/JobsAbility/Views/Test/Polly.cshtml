@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Polly";
+}
+
+<h1>Polly</h1>
+@using (Html.BeginForm("Polly", "test", FormMethod.Post))
+{
+    <input name="text" />
+    <button type="submit">Text to Voice</button>
+}
+
+@if (ViewBag.audio != null)
+{
+    <h1>audio complete</h1>
+    <audio controls="controls">
+        <source src="../MediaFiles/AudioFiles/@ViewBag.audio" type="audio/mpeg" />
+    </audio>
+}
+
+@section Scripts{
+
+    <script>
+        $("")
+    </script>
+
+}
