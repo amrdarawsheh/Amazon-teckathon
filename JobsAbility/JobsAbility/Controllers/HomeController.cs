@@ -17,7 +17,10 @@ namespace JobsAbility.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult Jobs()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
