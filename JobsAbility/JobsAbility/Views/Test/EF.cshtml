@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "EF";
+}
+
+<h1>EF</h1>
+
+@{
+    string name = "";
+    using (var db = new JobsAbility.Models.jobsDBContext())
+    {
+        name = db.User.Select(a => a.Name).FirstOrDefault();
+    }
+}
+<h1> hello @name</h1>
