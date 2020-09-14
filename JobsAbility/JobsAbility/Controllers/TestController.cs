@@ -16,6 +16,10 @@ namespace JobsAbility.Controllers
         {
             return View();
         }
+        public IActionResult MRI()
+        {
+            return View();
+        }
         public IActionResult Polly()
         {
             return View();
@@ -28,5 +32,8 @@ namespace JobsAbility.Controllers
             ViewBag.audio = filename+".mp3";
             return View();
         }
+
+
+
     }
 }

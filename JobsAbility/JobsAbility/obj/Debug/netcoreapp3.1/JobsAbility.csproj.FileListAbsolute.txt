@@ -823,3 +823,4 @@ C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Jobs
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cs
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cache
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\Polly.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\MRI.cshtml.g.cs
