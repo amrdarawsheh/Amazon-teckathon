@@ -75,9 +75,13 @@
                                     <li><a class="dropdown-item" href="single-post.html">Blog Single Post</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
                             <li class="nav-item"><a class="nav-link" href="login.html">Sign In</a></li>
-                            <li class="button-group"><a href="post-job.html" class="button btn btn-common">Post a Job</a></li>
+                            @*<li class="button-group"><a href="post-job.html" class="button btn btn-common">Post a Job</a></li>*@
+                            <li class="button-group mx-1">
+                                <a class="button btn btn-common py-1 px-3" href="javascript:void(0)" id="deaf">
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -145,7 +149,7 @@
             &copy; 2020 - JobsAbility - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-  
+
 
     <script src="~/js/jquery-min.js"></script>
     <script src="~/js/popper.min.js"></script>
@@ -157,6 +161,22 @@
     <script src="~/js/form-validator.min.js"></script>
     <script src="~/js/contact-form-script.js"></script>
     <script src="~/js/main.js"></script>
+    @* mri code starts *@
+    <script src="https://mindrocketsapis.com/web/client/Latest/jquery.js"></script>
+
+    <script src="https://mindrocketsapis.com/web/client/Latest/jquery.cookie.js"></script>
+
+    <!-- you can remove the above if you already included JQuery and cookie plugin -->
+
+    <script src="https://mindrocketsapis.com/web/client/Latest/toolkit.js"></script>
+
+    <script src="https://mindrocketsapis.com/web/client/Latest/signsplayer.js"></script>
+
+    <script src="https://mindrocketsapis.com/web/client/Latest/tooltip_add.js"></script>
+
+    <script src="https://mindrocketsapis.com/web/client/amramazon/integrator.js"></script>
+
+    @* mri code ends *@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
