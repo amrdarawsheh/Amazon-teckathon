@@ -1,3 +1,21 @@
 ﻿#home {
     height:50px;
 }
+.filter > p {
+    font-size: 18px;
+    text-align: center;
+    color: #383838;
+    font-weight: 500;
+    border-bottom: solid 1px #95c5cc;
+}
+.filter-type {
+    border-bottom: solid 1px #95c5cc;
+}
+.filter-header {
+    color: #383838;
+    font-weight: 500;
+    font-size: 16px;
+}
+input[type=checkbox] {
+    margin-right: .15rem !important;
+}
