@@ -4,7 +4,7 @@
 .filter > p {
     font-size: 18px;
     text-align: center;
-    color: #383838;
+    color: #02acc2;
     font-weight: 500;
     border-bottom: solid 1px #95c5cc;
 }
@@ -13,9 +13,43 @@
 }
 .filter-header {
     color: #383838;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
 }
 input[type=checkbox] {
     margin-right: .15rem !important;
+}
+.filter-submenu {
+    color: #718b8e;
+}
+.lni-chevron-down, .lni-chevron-up {
+    float: right;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #383838;
+}
+.noPadding {
+    padding:0px;
+}
+
+.btn-circle {
+    color: #109daf;
+    background: #d5ffe7;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 9px 0;
+    font-size: 16px;
+    line-height: 1.428571;
+    border-radius: 104px;
+}
+    .btn-circle:hover {
+        box-shadow: 0px 3px 9px rgba(96, 94, 94, 0.17);
+    }
+.fa-eye-slash {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
