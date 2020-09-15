@@ -1,4 +1,4 @@
-/*Theme Name:       TheHunt - Bootstrap HTML5 Job Portal TemplateAuthor:           UIdeckÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ Ã‚Â¾Ã‚Â«Ãƒâ€ Ã‚Â·Ãƒâ€žÃ‚Â£ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÅ Ã‚Â£ÃƒÂ¯Ã‚Â¿Ã‚Â½http://www.bootstrapmb.comText Domain:      UIdeckDomain Path:      /languages/*/
+/*Theme Name:       TheHunt - Bootstrap HTML5 Job Portal TemplateAuthor:           UIdeckÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â Ãƒâ€šÃ‚Â¾Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Â Ãƒâ€šÃ‚Â·ÃƒÆ’Ã¢â‚¬Å¾Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã…Â Ãƒâ€šÃ‚Â£ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½http://www.bootstrapmb.comText Domain:      UIdeckDomain Path:      /languages/*/
 
 
 /*TABLE OF CONTENT */
@@ -1913,8 +1913,14 @@ button:focus {
         }
 
     .job-listings .btn-full-time {
+        /* background-color: #d5d5ff; */
+        /* padding: 11px; */
+        text-transform: inherit !important;
+        border-radius: 26px;
+        font-weight: bold;
+        color: #2f2f2f;
         line-height: 50px;
-        font-size: 14px;
+        font-size: 15px;
         text-transform: uppercase;
     }
 
@@ -4471,7 +4477,6 @@ footer .menu {
 }
 
 .alerts-content:hover {
-
     background-color: #e6f2f4ad;
     border: 1px dashed #97dcee;
 }
@@ -4490,3 +4495,7 @@ footer .menu {
         background-color: #00bcd4;
         border-radius: 24px;
     }
+.job-details {
+    padding-left: 30px;
+    text-align: left !important;
+}
