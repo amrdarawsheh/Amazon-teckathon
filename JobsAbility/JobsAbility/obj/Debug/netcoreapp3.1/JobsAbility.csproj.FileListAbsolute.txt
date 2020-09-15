@@ -857,3 +857,5 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razo
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\MRI.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\Polly.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateJobs.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobDescription.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageJobs.cshtml.g.cs

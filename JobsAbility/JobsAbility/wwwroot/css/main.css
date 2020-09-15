@@ -75,7 +75,7 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    color: #9a9a9a;
+    color: #3e3e3e;
     font-size: 14px;
     font-weight: 400;
     background: #fff;
@@ -88,7 +88,7 @@ html {
 
 p {
     font-size: 14px;
-    color: #9a9a9a;
+    color: #3e3e3e;
     line-height: 26px;
     font-family: 'Rubik', sans-serif;
     margin-bottom: 0;
@@ -351,7 +351,7 @@ button:focus {
 }
 
 .page-header {
-    padding: 115px 0px 50px;
+    padding: 80px 0px 65px;
     position: relative;
     background: url(../img/banner1.jpg);
 }
@@ -408,7 +408,7 @@ button:focus {
         }
 
     .page-header .breadcrumb-wrapper .product-title {
-        font-size: 24px;
+        font-size: 31px;
         font-weight: 500;
         margin-bottom: 0;
         color: #333;
@@ -426,11 +426,11 @@ button:focus {
     }
 
     .page-header .breadcrumb-wrapper .content {
-        padding-left: 110px;
+        padding-left: 29px;
     }
 
         .page-header .breadcrumb-wrapper .content .brand {
-            font-size: 14px;
+            font-size: 19px;
             margin-bottom: 10px;
             color: #666666;
         }
@@ -441,11 +441,13 @@ button:focus {
 
             .page-header .breadcrumb-wrapper .content .tags span {
                 margin-right: 10px;
+                font-size: 15px;
             }
 
                 .page-header .breadcrumb-wrapper .content .tags span i {
                     margin-right: 5px;
                     color: #00bcd4;
+                    font-size: 1;
                 }
 
     .page-header .month-price {
@@ -1454,6 +1456,7 @@ button:focus {
 
 #featured .job-featured {
     background: #fff;
+    border-left: #00bcd4 4px solid !important;
     padding: 20px;
     margin: 15px 0;
     border-radius: 4px;
@@ -1463,6 +1466,7 @@ button:focus {
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
+    /* border: 1px dotted #00bcd4; */
 }
 
     #featured .job-featured .icon {
@@ -1477,7 +1481,7 @@ button:focus {
     }
 
     #featured .job-featured .content {
-        padding-left: 90px;
+        padding-left: 48px;
     }
 
         #featured .job-featured .content h3 {
@@ -1514,7 +1518,7 @@ button:focus {
                 }
 
     #featured .job-featured:hover {
-        border-color: #00bcd4;
+        box-shadow: 0px 0px 20px 3px #808fa79e;
     }
 
 
@@ -2503,6 +2507,7 @@ button:focus {
     }
 
 .job-alerts-item {
+    background-color: white;
     padding: 30px;
     box-shadow: 0px 0px 14px rgba(191, 191, 191, 0.24);
 }
@@ -2524,21 +2529,25 @@ button:focus {
     }
 
         .job-alerts-item .alerts-content h3 {
-            font-size: 16px;
+            font-size: 17px;
         }
 
         .job-alerts-item .alerts-content .location {
-            color: #9a9a9a;
+            color: #121212;
+            font-size: 15px;
         }
 
         .job-alerts-item .alerts-content p {
-            color: #9a9a9a;
-            margin-top: 15px;
+            color: #262626;
+            /* margin-top: 15px; */
             line-height: 20px;
+            font-size: 16px;
         }
 
             .job-alerts-item .alerts-content p i {
                 line-height: 26px;
+                font-size: 17px;
+                color: #1a1a1a;
             }
 
     .job-alerts-item .job-list {
@@ -2958,7 +2967,8 @@ button:focus {
 }
 
 .job-detail .content-area {
-    padding: 15px 20px;
+    border: 1px dotted #00bcd4;
+    padding: 41px 33px;
     box-shadow: 0px 0px 14px rgba(191, 191, 191, 0.24);
 }
 
@@ -2970,6 +2980,7 @@ button:focus {
 
     .job-detail .content-area p {
         margin-bottom: 15px;
+        /* margin-left: 9px; */
     }
 
     .job-detail .content-area h5 {
@@ -2989,6 +3000,7 @@ button:focus {
 }
 
 .sideber {
+    border: 1px dotted #00bcd4;
     padding: 15px;
     box-shadow: 0px 0px 14px rgba(191, 191, 191, 0.24);
 }
@@ -4450,3 +4462,10 @@ footer .menu {
         color: #333;
         font-weight: 400;
     }
+
+.job-alerts-item .alerts-content h3:hover {
+}
+
+.alerts-content:hover { /* box-shadow: 0px 0px 20px rgb(102 102 102 / 54%); */
+    background-color: #e6f2f494;
+}
