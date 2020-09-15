@@ -29,12 +29,12 @@ $(document).ready(function () {
 var isReady = false;
 function PreparePageForReading() {
     if (!isReady) {
-        $('body *:visible').not("[audio-id],style,script").contents().filter(function () {
+        $('body *:visible,.read-polly').not("[audio-id],style,script,.no-polly").contents().filter(function () {
             return (this.nodeType == 3) && this.nodeValue.length > 0;
         }).wrap("<span />").each(function (i, j) {
             var str = j.data;
             str = str.replace("\n", "").replace("\r", "").replace(" ", "");
-            if (str.trim() != "" && str.trim() != "For Low Vision") {
+            if (str.trim() != "") {
                 elements.push({ element: j.parentElement, text: str });
                 j.parentElement.setAttribute("text-index", index++);
             }
