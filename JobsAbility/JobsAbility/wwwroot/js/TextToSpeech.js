@@ -3,6 +3,7 @@ var audioIndex = -1;
 var index = 0;
 $(document).ready(function () {
     if (GetParam("polly") == "use") {
+       
         var interval = setInterval(function () {
             try {
                 $("#pollyPlaying")[0].click();
@@ -27,17 +28,19 @@ $(document).ready(function () {
 })
 var isReady = false;
 function PreparePageForReading() {
-    $('body *:visible').not("[audio-id],style,script").contents().filter(function () {
-        return (this.nodeType == 3) && this.nodeValue.length > 0;
-    }).wrap("<span />").each(function (i, j) {
-        var str = j.data;
-        str = str.replace("\n", "").replace("\r", "").replace(" ", "");
-        if (str.trim() != "" && str.trim() != "For Low Vision") {
-            elements.push({ element: j.parentElement, text: str });
-            j.parentElement.setAttribute("text-index", index++);
-        }
-    });
-    isReady = true;
+    if (!isReady) {
+        $('body *:visible').not("[audio-id],style,script").contents().filter(function () {
+            return (this.nodeType == 3) && this.nodeValue.length > 0;
+        }).wrap("<span />").each(function (i, j) {
+            var str = j.data;
+            str = str.replace("\n", "").replace("\r", "").replace(" ", "");
+            if (str.trim() != "" && str.trim() != "For Low Vision") {
+                elements.push({ element: j.parentElement, text: str });
+                j.parentElement.setAttribute("text-index", index++);
+            }
+        });
+        isReady = true;
+    }
 }
 function StopReading() {
     SetParam("polly", "nouse")
@@ -78,7 +81,7 @@ function Play(mode) {
     //1 next 2 back 3 go 
     if (mode == 1) {
         if (audioIndex + 1 == index) {
-            PlayAudio("MediaFiles/AudioFiles/outOfLimits.mp3");
+            PlayAudio(hostUrl+"MediaFiles/AudioFiles/outOfLimits.mp3");
             return;
         }
         audioIndex++;
@@ -86,7 +89,7 @@ function Play(mode) {
     }
     else if (mode == 2) {
         if (audioIndex - 1 == -1) {
-            PlayAudio("MediaFiles/AudioFiles/outOfLimits.mp3");
+            PlayAudio(hostUrl+"MediaFiles/AudioFiles/outOfLimits.mp3");
             return;
         }
         audioIndex--;
@@ -102,14 +105,14 @@ function Play(mode) {
 }
 function TranslateCurrentElem() {
     var elemTextObj = GetToTranslate();
-    $.get("api/polly", { text: elemTextObj.text }, function (res) {
+    $.get(hostUrl+"api/polly", { text: elemTextObj.text }, function (res) {
         PlayAudio(res.mp3Link);
         $(".highlight-reader").removeClass("highlight-reader");
         $(elemTextObj.element).addClass("highlight-reader");
     });
 }
 function PlayIntro() {
-    PlayAudio("MediaFiles/AudioFiles/intro.mp3");
+    PlayAudio(hostUrl+"MediaFiles/AudioFiles/intro.mp3");
     SetParam("intro", "played");
 }
 function PlayAudio(srcLink) {
