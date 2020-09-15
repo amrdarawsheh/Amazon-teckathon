@@ -423,3 +423,7 @@ C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\st
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\JobsAbility.dll
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\JobsAbility.pdb
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\JobsAbility.genruntimeconfig.cache
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Release\netcoreapp3.1\AWSSDK.Core.dll
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Release\netcoreapp3.1\AWSSDK.Polly.dll
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\Razor\Views\Test\MRI.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Release\netcoreapp3.1\Razor\Views\Test\Polly.cshtml.g.cs

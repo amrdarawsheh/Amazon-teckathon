@@ -22,7 +22,7 @@ namespace JobsAbility
                 Task.Run(RecordFile).Wait();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return false;

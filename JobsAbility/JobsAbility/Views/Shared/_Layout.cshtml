@@ -150,7 +150,7 @@
             &copy; 2020 - JobsAbility - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
+    <div style="display:none" id="audioDiv"></div>
 
     <script src="~/js/jquery-min.js"></script>
     <script src="~/js/popper.min.js"></script>
@@ -178,6 +178,9 @@
     <script src="https://mindrocketsapis.com/web/client/amramazon/integrator.js"></script>
 
     @* mri code ends *@
+
+    <script src="~/js/TextToSpeech.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
