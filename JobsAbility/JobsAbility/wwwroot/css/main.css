@@ -114,8 +114,8 @@ h4,
 h5 {
     font-family: 'Rubik', sans-serif;
     font-size: 40px;
-    font-weight: 700;
-    color: #191c1e;
+    font-weight: 500;
+    color: #191c1edb;
 }
 
 ul {
@@ -2349,13 +2349,13 @@ button:focus {
 }
 
 .full-time {
-    color: #00bcd4;
-    background: #d5ffe7;
+    color: #18653a;
+    background: #8fb7ff66;
 }
 
 .part-time {
     color: #ff6046;
-    background: #ffd8d2;
+    background: #ff939394;
 }
 
     .full-time:hover,
@@ -2508,13 +2508,14 @@ button:focus {
 
 .job-alerts-item {
     background-color: white;
+    /* border: 1px dotted #00bcd4; */
     padding: 30px;
-    box-shadow: 0px 0px 14px rgba(191, 191, 191, 0.24);
+    box-shadow: 0px 0px 20px 9px rgb(37 37 37 / 18%);
 }
 
     .job-alerts-item .alerts-list {
         padding: 15px 0;
-        border-bottom: 1px solid #f1f1f1;
+        border-bottom: 1px solid #00bcd4;
         text-transform: uppercase;
     }
 
@@ -2547,7 +2548,8 @@ button:focus {
             .job-alerts-item .alerts-content p i {
                 line-height: 26px;
                 font-size: 17px;
-                color: #1a1a1a;
+                color: #2a2a2a;
+                text-shadow: 0 0px 1px #696969;
             }
 
     .job-alerts-item .job-list {
@@ -4466,6 +4468,9 @@ footer .menu {
 .job-alerts-item .alerts-content h3:hover {
 }
 
-.alerts-content:hover { /* box-shadow: 0px 0px 20px rgb(102 102 102 / 54%); */
-    background-color: #e6f2f494;
+.alerts-content:hover {
+    /* border-style: dotted; */
+    /* box-shadow: 0px 0px 20px rgb(102 102 102 / 54%); */
+    background-color: #e6f2f4ad;
+    border: 1px dashed #97dcee;
 }
