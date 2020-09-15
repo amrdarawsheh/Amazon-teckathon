@@ -17,6 +17,10 @@ namespace JobsAbility.Models
         public int CategoryId { get; set; }
         public int? SubCategoryId { get; set; }
         public int WorkTypeId { get; set; }
+        public bool IsDeaf { get; set; }
+        public bool IsBlind { get; set; }
+        public bool IsAll { get; set; }
+        public string DetailsText { get; set; }
 
         public virtual Categories Category { get; set; }
         public virtual SubCategories SubCategory { get; set; }

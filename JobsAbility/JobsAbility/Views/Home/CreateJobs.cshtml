@@ -1,6 +1,7 @@
-﻿
+﻿@model JobsAbility.Models.JobPostings
 @{
     ViewData["Title"] = "CreateJobs";
+    var categories = (List<SelectListItem>)(ViewBag.categories);
 }
 
 <div class="page-header">
@@ -20,32 +21,59 @@
             <div class="col-lg-9 col-md-12 col-xs-12">
                 <div class="post-job box">
                     <h3 class="job-title">Post a new Job</h3>
-                    <form class="form-ad">
-                        <div class="form-group"><label class="control-label">Job Title</label><input type="text" class="form-control" placeholder="Write job title"></div>
-                        <div class="form-group"><label class="control-label">Company</label><input type="text" class="form-control" placeholder="Write company name"></div>
-                        <div class="form-group"><label class="control-label">Location <span>(optional)</span></label><input type="text" class="form-control" placeholder="e.g.London"></div>
+                    @using (Html.BeginForm("CreateJobs","home",FormMethod.Post,new { @class="form-ad" })) {
+                        <div class="form-group">
+                            <label class="control-label">Job Title</label>
+                            @Html.TextBoxFor(a => a.Title, new { @class = "form-control", placeholder = "Write job title" })
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Disability Targeted</label>
+                            <div>
+                                <label>@Html.CheckBoxFor(a => a.IsDeaf, new { }) For Deaf</label>
+                            </div>
+                            <div>
+                                <label>@Html.CheckBoxFor(a => a.IsBlind, new {}) For Low Vision</label>
+                            </div>
+                            <div>
+                                <label>@Html.CheckBoxFor(a => a.IsAll, new { }) For Other Disabilites</label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label">Category</label>
-                            <div class="search-category-container"><label class="styled-select"><select class="dropdown-product selectpicker"><option>All Categories</option><option>Finance</option><option>IT & Engineering</option><option>Education/Training</option><option>Art/Design</option><option>Sale/Markting</option><option>Healthcare</option><option>Science</option><option>Food Services</option></select></label></div>
+                            <div class="search-category-container">
+                                <label class="styled-select">
+                                    @Html.DropDownListFor(a => a.CategoryId,categories, new { @class = "dropdown-product selectpicker" })
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Job Tags <span>(optional)</span></label><input type="text" class="form-control" placeholder="e.g.PHP,Social Media,Management">
-                            <p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
+                            <label class="control-label noMarginBottom">Description</label>
                         </div>
-                        <div class="form-group"><label class="control-label noMarginBottom">Description</label></div>
+                        @Html.HiddenFor(a=>a.Details,new { id="details"})
+                        @Html.HiddenFor(a=>a.DetailsText,new { id="detailsText"})
                         <textarea name="editor1"></textarea>
                         <script>
-                            CKEDITOR.replace('editor1');
+                            CKEDITOR.replace("editor1");
                         </script>
-                        <div class="form-group mt-4"><label class="control-label">Application email / URL</label><input type="text" class="form-control" placeholder="Enter an email address or website URL"></div>                        <div class="divider">
-                            <h3 class="job-title">Company Details</h3>
+                        <div class="divider"></div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-common">Submit your job</button>
                         </div>
-                        <div class="form-group"><label class="control-label">Company Name</label><input type="text" class="form-control" placeholder="Enter the name of the company"></div>
-                        <div class="text-center mt-4"><a href="#" class="btn btn-common">Submit your job</a></div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+@section Scripts{ 
+    <script>
+        CKEDITOR.instances.editor1.on('change', function () {
+            $("#details").val(CKEDITOR.instances.editor1.getData());
+            var text = getClearText(CKEDITOR.instances.editor1.getData());
+            $("#detailsText").val(text);
+        });
+        function getClearText(strSrc) {
+            return strSrc.replace(/<[^<|>]+?>/gi, '');
+        }
+    </script>
+}

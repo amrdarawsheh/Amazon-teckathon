@@ -105,6 +105,10 @@ namespace JobsAbility.Models
                     .IsRequired()
                     .HasColumnType("ntext");
 
+                entity.Property(e => e.DetailsText)
+                    .IsRequired()
+                    .HasColumnType("ntext");
+
                 entity.Property(e => e.Title)
                     .IsRequired()
                     .HasMaxLength(200);
@@ -166,6 +170,10 @@ namespace JobsAbility.Models
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(250);
+
+                entity.Property(e => e.Firstname).IsRequired();
+
+                entity.Property(e => e.Lastname).IsRequired();
 
                 entity.Property(e => e.Password)
                     .IsRequired()

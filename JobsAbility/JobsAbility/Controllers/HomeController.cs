@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using JobsAbility.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace JobsAbility.Controllers
 {
@@ -31,7 +33,33 @@ namespace JobsAbility.Controllers
         }
         public IActionResult CreateJobs()
         {
-            return View();
+
+            if (int.TryParse(HttpContext.Session.GetString("UserId"), out int userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 1) 
+            {
+                List<SelectListItem> categories = new List<SelectListItem>();
+                using (var db = new jobsDBContext())
+                {
+                    categories = db.Categories.Select(a => new SelectListItem { Value = a.Id.ToString(), Text = a.Name }).ToList();
+                    ViewBag.categories = categories;
+                    return View();
+                }
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public IActionResult CreateJobs(JobPostings JobPost)
+        {
+            using (var db = new jobsDBContext())
+            {
+                var userId =int.Parse(HttpContext.Session.GetString("UserId"));
+                JobPost.RecruiterId = userId;
+                db.JobPostings.Add(JobPost);
+                db.SaveChanges();
+                return View("ManageJobs");
+            }
         }
         public IActionResult Index()
         {
