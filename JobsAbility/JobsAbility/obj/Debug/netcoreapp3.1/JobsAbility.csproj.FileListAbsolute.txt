@@ -9,7 +9,6 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\Jobs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\JobsAbility.pdb
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\JobsAbility.Views.dll
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\JobsAbility.Views.pdb
-C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.csprojAssemblyReference.cache
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.AssemblyInfoInputs.cache
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.AssemblyInfo.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.RazorAssemblyInfo.cache
@@ -859,3 +858,5 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razo
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateJobs.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobDescription.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageJobs.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\config.json
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.csprojAssemblyReference.cache
