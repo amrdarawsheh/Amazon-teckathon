@@ -1,0 +1,103 @@
+/*
+Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+.cke_chrome {
+    display: block;
+    border: 1px solid #a7d6f6 !important;
+    border-radius: 16px !important;
+    padding: 0;
+}
+
+.cke_inner {
+    display: block;
+    background: #fff;
+    border-radius: 16px !important;
+    padding: 0;
+    -webkit-touch-callout: none;
+}
+
+.cke_top {
+    border-bottom: 1px solid #a7d6f6 !important;
+    border-top-right-radius: 16px !important;
+    border-top-left-radius: 16px !important;
+    background: #ebf7f687 !important;
+    padding: 6px 8px 2px;
+    white-space: normal;
+}
+
+
+
+.cke_bottom {
+    padding: 6px 8px 2px;
+    position: relative;
+    border-top: 1px solid #a7d6f6 !important;
+    border-bottom-right-radius: 16px !important;
+    border-bottom-left-radius: 16px !important;
+    background: #ebf7f687 !important;
+}
+
+
+.cke_resizer {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 10px 10px 0 0;
+    border-color: transparent #61aeb7 transparent transparent !important;
+    border-style: dashed solid dashed dashed;
+    font-size: 0;
+    vertical-align: bottom;
+    margin-top: 1px !important;
+    margin-bottom: 2px;
+}
+
+.cke_resizer_ltr {
+    cursor: se-resize;
+    float: right;
+    margin-right: 2px !important;
+}
+
+.cke_panel_listItem a {
+    padding: 6px 7px;
+    display: block;
+    color: inherit !important;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.cke_toolgroup a.cke_button:last-child:after, .cke_toolgroup a.cke_button.cke_button_disabled:hover:last-child:after {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 0;
+    border-right: 1px solid #628acc !important;
+    margin-top: 4px;
+    top: 0;
+    right: -3px;
+}
+
+.cke_toolbar_separator {
+    float: left;
+    background-color: #628acc !important;
+    margin: 4px 2px 0 2px;
+    height: 18px;
+    width: 1px;
+}
+
+.cke_combo:after {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 0;
+    border-right: 1px solid #628acc !important;
+    margin-top: 5px;
+    top: 0;
+    right: 0;
+}
+.cke_chrome:focus{
+    border: 1px solid #00bcd4;
+    outline: none;
+    box-shadow: none;
+    box-shadow: 0px 0px 12px rgb(192 192 192 / 54%);
+}
