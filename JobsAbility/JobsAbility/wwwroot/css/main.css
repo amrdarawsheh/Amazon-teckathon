@@ -1,4 +1,4 @@
-/*Theme Name:       TheHunt - Bootstrap HTML5 Job Portal TemplateAuthor:           UIdeckï¿½ï¿½ï¿½à¾«Æ·Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½http://www.bootstrapmb.comText Domain:      UIdeckDomain Path:      /languages/*/
+/*Theme Name:       TheHunt - Bootstrap HTML5 Job Portal TemplateAuthor:           UIdeckÃ¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã Â¾Â«Ã†Â·Ã„Â£Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ÃŠÂ£Ã¯Â¿Â½http://www.bootstrapmb.comText Domain:      UIdeckDomain Path:      /languages/*/
 
 
 /*TABLE OF CONTENT */
@@ -830,7 +830,7 @@ button:focus {
     transition: all 0.3s ease-in-out;
     border-radius: 30px;
     z-index: 1;
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
     .button-group .button:hover {
@@ -3082,17 +3082,26 @@ button:focus {
                 }
 
 .post-job .job-title {
-    margin-bottom: 15px;
+    margin-bottom: 21px;
     font-size: 18px;
     font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #0393a5;
+    font-weight: 500;
+    border-bottom: solid 1px #95c5cc;
+    padding-bottom: 1em;
 }
 
 .post-job p {
     margin-bottom: 10px;
+    margin-left: 2px;
+    /* text-align: right; */
 }
 
 .post-job .control-label {
     margin-bottom: 10px;
+    margin-left: 4px;
 }
 
 .post-job .styled-select {
@@ -3180,6 +3189,9 @@ select:focus {
 
 label {
     margin: 0;
+    color: #3e3e3e;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .divider {
@@ -3846,7 +3858,7 @@ blockquote {
     padding: 9px 15px;
     font-size: 14px;
     border-radius: 30px;
-    border: 1px solid #ececec;
+    border: 1px solid #a7d6f6b0;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -3856,6 +3868,7 @@ blockquote {
         border: 1px solid #00bcd4;
         outline: none;
         box-shadow: none;
+        box-shadow: 0px 0px 12px rgb(192 192 192 / 54%);
     }
 
 .btn.disabled,
@@ -3946,6 +3959,7 @@ textarea {
 
 .box {
     padding: 30px;
+    border: 1px dotted #00bcd4;
     box-shadow: 0px 0px 14px rgba(191, 191, 191, 0.24);
 }
 

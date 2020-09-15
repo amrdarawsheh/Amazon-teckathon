@@ -1,5 +1,5 @@
 ﻿#home {
-    height:50px;
+    height: 60px;
 }
 .filter > p {
     font-size: 18px;
@@ -52,4 +52,7 @@ input[type=checkbox] {
     -o-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
+}
+.noMarginBottom {
+    margin-bottom:0px !important;
 }

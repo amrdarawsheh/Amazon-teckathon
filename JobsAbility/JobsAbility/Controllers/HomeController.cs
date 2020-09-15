@@ -21,6 +21,10 @@ namespace JobsAbility.Controllers
         {
             return View();
         }
+        public IActionResult CreateJobs()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
