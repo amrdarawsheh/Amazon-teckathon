@@ -1,17 +1,19 @@
 ﻿var elements = [];
 var audioIndex = -1;
+var index = 0;
 $(document).ready(function () {
-    var index = 0;
-    var x = $('body *:not([audio-id],style,script)').contents().filter(function () {
-        return (this.nodeType == 3) && this.nodeValue.length > 0;
-    }).wrap("<span />").each(function (i, j) {
-        var str = j.data;
-        str = str.replace("\n", "").replace("\r", "").replace(" ", "");
-        if (str.trim() != "") {
-            elements.push({ element: j.parentElement, text: str });
-            j.parentElement.setAttribute("text-index", index++);
-        }
-    });
+    if (GetParam("polly") == "use") {
+        var interval = setInterval(function () {
+            try {
+                $("#pollyPlaying")[0].click();
+                clearInterval(interval);
+                console.log("try")
+            } catch (e) {
+                console.log("try")
+            }
+        }, 500)
+    }
+    
     $("#pollyPlaying").click(function () {
         $("#pollyStop").show();
         $(this).hide();
@@ -23,16 +25,36 @@ $(document).ready(function () {
         StopReading();
     });
 })
+var isReady = false;
+function PreparePageForReading() {
+    $('body *:visible').not("[audio-id],style,script").contents().filter(function () {
+        return (this.nodeType == 3) && this.nodeValue.length > 0;
+    }).wrap("<span />").each(function (i, j) {
+        var str = j.data;
+        str = str.replace("\n", "").replace("\r", "").replace(" ", "");
+        if (str.trim() != "" && str.trim() != "For Low Vision") {
+            elements.push({ element: j.parentElement, text: str });
+            j.parentElement.setAttribute("text-index", index++);
+        }
+    });
+    isReady = true;
+}
 function StopReading() {
+    SetParam("polly", "nouse")
+    SetParam("intro", "noplayed");
+
     if ($("#audioPlaying").length != 0) {
         $("#audioPlaying")[0].pause();
     }
     $("#audioDiv").empty();
 }
 function StartReading() {
-    PlayIntro();
+    PreparePageForReading() ;
+    SetParam("polly", "use")
+    if (GetParam("intro")=="noplayed")
+        PlayIntro();
     document.onkeydown = keydown;
-
+    
     function keydown(evt) {
         if (!evt) evt = event;
         else if (evt.shiftKey && evt.keyCode == 70) { //Shif+f
@@ -55,10 +77,18 @@ var testElm;
 function Play(mode) {
     //1 next 2 back 3 go 
     if (mode == 1) {
+        if (audioIndex + 1 == index) {
+            PlayAudio("MediaFiles/AudioFiles/outOfLimits.mp3");
+            return;
+        }
         audioIndex++;
         TranslateCurrentElem();
     }
     else if (mode == 2) {
+        if (audioIndex - 1 == -1) {
+            PlayAudio("MediaFiles/AudioFiles/outOfLimits.mp3");
+            return;
+        }
         audioIndex--;
         TranslateCurrentElem();
     }
@@ -66,19 +96,21 @@ function Play(mode) {
         elements[audioIndex].element.click();
     }
     else if (mode == 4) {
-        audioIndex--;
         TranslateCurrentElem();
-        audioIndex++;
     }
+    
 }
 function TranslateCurrentElem() {
     var elemTextObj = GetToTranslate();
     $.get("api/polly", { text: elemTextObj.text }, function (res) {
         PlayAudio(res.mp3Link);
+        $(".highlight-reader").removeClass("highlight-reader");
+        $(elemTextObj.element).addClass("highlight-reader");
     });
 }
 function PlayIntro() {
     PlayAudio("MediaFiles/AudioFiles/intro.mp3");
+    SetParam("intro", "played");
 }
 function PlayAudio(srcLink) {
     if ($("#audioPlaying").length != 0) {

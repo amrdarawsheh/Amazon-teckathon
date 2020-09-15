@@ -859,3 +859,7 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razo
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateJobs.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobDescription.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageJobs.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\config.json
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateJobs.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobDescription.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageJobs.cshtml.g.cs
