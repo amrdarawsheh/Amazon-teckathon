@@ -88,6 +88,16 @@
                                 <a class="button btn btn-common py-1 px-3" href="javascript:void(0)" id="deaf">
                                 </a>
                             </li>
+                            <li class="button-group mx-1">
+                                <a class="button btn btn-common px-3" href="javascript:void(0)" style="padding: 7px;">
+                                    <div style="margin:5px">
+                                        <span id="pollyPlaying" > <i class="fas fa-low-vision" > </i > For Low Vision</span >
+                                        <span id="pollyStop" style="display:none;" > <i class="fas fa-stop-circle"></i> Stop</span >
+                                    </div>
+                                    
+                                    
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -155,7 +165,7 @@
             &copy; 2020 - JobsAbility - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
+    <div style="display:none" id="audioDiv"></div>
 
     <script src="~/js/jquery-min.js"></script>
     <script src="~/js/popper.min.js"></script>
@@ -183,6 +193,9 @@
     <script src="https://mindrocketsapis.com/web/client/amramazon/integrator.js"></script>
 
     @* mri code ends *@
+
+    <script src="~/js/TextToSpeech.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

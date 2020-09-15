@@ -9,10 +9,12 @@ namespace JobsAbility
 {
     abstract public class AmazonCredHelper
     {
-        private const string AwsAccessKeyId = "AKIAIJWV5GBB4ERUVUHA";
-        private const string AwsSecretAccessKey = "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";
+        private static string AwsAccessKeyId = "AKIAJBM7TCH5LK72ICOA";
+        private static string AwsSecretAccessKey = "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";
         static AmazonCredHelper()
         {
+            AwsAccessKeyId = Config.GetValue("AwsAccessKeyId");
+            AwsSecretAccessKey = Config.GetValue("AwsSecretAccessKey");
             AwsCredintals = new Amazon.Runtime.BasicAWSCredentials(AwsAccessKeyId, AwsSecretAccessKey);
         }
         public static Amazon.Runtime.AWSCredentials AwsCredintals;

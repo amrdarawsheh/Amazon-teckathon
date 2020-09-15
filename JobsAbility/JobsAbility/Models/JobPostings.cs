@@ -16,6 +16,7 @@ namespace JobsAbility.Models
         public int RecruiterId { get; set; }
         public int CategoryId { get; set; }
         public int? SubCategoryId { get; set; }
+        public int WorkTypeId { get; set; }
 
         public virtual Categories Category { get; set; }
         public virtual SubCategories SubCategory { get; set; }
