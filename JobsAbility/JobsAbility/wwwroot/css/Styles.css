@@ -56,3 +56,6 @@ input[type=checkbox] {
 .noMarginBottom {
     margin-bottom:0px !important;
 }
+.navbar-expand-lg .navbar-nav li a:hover, .navbar-expand-lg .navbar-nav li .active > a, .navbar-expand-lg .navbar-nav li a:focus {
+    color: #fff !important;
+}

@@ -21,7 +21,9 @@ namespace JobsAbility.Models
         public virtual DbSet<Disabilities> Disabilities { get; set; }
         public virtual DbSet<JobApplications> JobApplications { get; set; }
         public virtual DbSet<JobPostings> JobPostings { get; set; }
+        public virtual DbSet<JobType> JobType { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<SentenceVoice> SentenceVoice { get; set; }
         public virtual DbSet<SubCategories> SubCategories { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Users> Users { get; set; }
@@ -119,11 +121,25 @@ namespace JobsAbility.Models
                     .HasConstraintName("FK_JobPostings_SubCategories");
             });
 
+            modelBuilder.Entity<JobType>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(250);
+            });
+
             modelBuilder.Entity<Roles>(entity =>
             {
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<SentenceVoice>(entity =>
+            {
+                entity.Property(e => e.AudioLink).HasMaxLength(250);
+
+                entity.Property(e => e.Sentence).IsRequired();
             });
 
             modelBuilder.Entity<SubCategories>(entity =>

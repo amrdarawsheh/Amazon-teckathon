@@ -14,6 +14,7 @@ namespace JobsAbility.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsMain { get; set; }
+        public string Htmlcon { get; set; }
 
         public virtual ICollection<JobPostings> JobPostings { get; set; }
         public virtual ICollection<SubCategories> SubCategories { get; set; }
