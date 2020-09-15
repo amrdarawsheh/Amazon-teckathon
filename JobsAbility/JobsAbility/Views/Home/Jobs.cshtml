@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="inner-header">
-                    <h3>Browse Job</h3>
+                    <h3>Browse Jobs</h3>
                 </div>
             </div>
         </div>
@@ -16,13 +16,7 @@
 <section class="job-browse section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12">
-                <div class="wrap-search-filter row">
-                    <div class="col-lg-5 col-md-5 col-xs-12"><input type="text" class="form-control" placeholder="Keyword: Name, Tag"></div>
-                    <div class="col-lg-5 col-md-5 col-xs-12"><input type="text" class="form-control" placeholder="Location: City, State, Zip"></div>
-                    <div class="col-lg-2 col-md-2 col-xs-12"><button type="submit" class="btn btn-common float-right">Filter</button></div>
-                </div>
-            </div>
+            
             <div class="col-3 job-listings">
                 <div class="filter">
                     <p class="pb-3">
@@ -36,38 +30,54 @@
                         <label class="filter-header">Category</label>
                         <i class="lni lni-chevron-down mr-2 mt-1"></i>
                     </div>
-                    <ul class="pl-2 mt-2 filter-submenu d-none">
+                    <ul class="pl-2 mt-2 filter-submenu">
                         <li>
-                            <input type="checkbox" />
-                            <label>Finance</label>
+                            <label>
+                                <input type="checkbox" />
+                                Finance
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Sale/Markting</label>
+                            <label>
+                                <input type="checkbox" />
+                                Sale/Markting
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Education/Training</label>
+                            <label>
+                                <input type="checkbox" />
+                                Education/Training
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Technologies</label>
+                            <label>
+                                <input type="checkbox" />
+                                Technologies
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Art/Design</label>
+                            <label>
+                                <input type="checkbox" />
+                                Art/Design
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Healthcare</label>
+                            <label>
+                                <input type="checkbox" />
+                                Healthcare
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Science</label>
+                            <label>
+                                <input type="checkbox" />
+                                Science
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Food Services</label>
+                            <label>
+                                <input type="checkbox" />
+                                Food Services
+                            </label>
                         </li>
                     </ul>
                 </div>
@@ -76,18 +86,24 @@
                         <label class="filter-header ">Roles</label>
                         <i class="lni lni-chevron-down mr-2 mt-1"></i>
                     </div>
-                    <ul class="pl-2 mt-2 filter-submenu d-none">
+                    <ul class="pl-2 mt-2 filter-submenu">
                         <li>
-                            <input type="checkbox" />
-                            <label>Front-end Developer</label>
+                            <label>
+                                <input type="checkbox" />
+                                Front-end Developer
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>Back-end Developer</label>
+                            <label>
+                                <input type="checkbox" />
+                                Back-end Developer
+                            </label>
                         </li>
                         <li>
-                            <input type="checkbox" />
-                            <label>.NET Developer</label>
+                            <label>
+                                <input type="checkbox" />
+                                .NET Developer
+                            </label>
                         </li>
                     </ul>
                 </div>
@@ -96,10 +112,12 @@
                         <label class="filter-header ">Experience (years)</label>
                         <i class="lni lni-chevron-down mr-2 mt-1"></i>
                     </div>
-                    <ul class="pl-2 mt-2  filter-submenu d-none">
+                    <ul class="pl-2 mt-2  filter-submenu">
                         <li>
-                            <input type="checkbox" />
-                            <label>0-1</label>
+                            <label>
+                                <input type="checkbox" />
+                                0-1
+                            </label>
                         </li>
                         <li>
                             <input type="checkbox" />
@@ -199,8 +217,8 @@
     <script>
         $(document).ready(function () {
             $(".trigger").click(function () {
-                obj = $(this)
-                ul = obj.next("ul")[0]
+                obj = $(this).parent();
+                ul = obj.find("ul");
                 if ($(ul).hasClass("d-none")) {
                     $(ul).removeClass("d-none")
                 }
@@ -218,23 +236,31 @@
                 }
 
             })
+           
+            //$("#triggerAllOpen").click(function () {
 
-            $("#triggerAllOpen").click(function () {
+            //    $("#triggerAllOpen").addClass("d-none")
+            //    $("#triggerAllClose").removeClass("d-none")
+            //    $(".filter-submenu").removeClass("d-none")
 
-                $("#triggerAllOpen").addClass("d-none")
-                $("#triggerAllClose").removeClass("d-none")
-                $(".filter-submenu").removeClass("d-none")
+            //})
+            //$("#triggerAllClose").click(function () {
 
-            })
-            $("#triggerAllClose").click(function () {
-
-                $("#triggerAllClose").addClass("d-none")
-                $("#triggerAllOpen").removeClass("d-none")
-                $(".filter-submenu").addClass("d-none")
+            //    $("#triggerAllClose").addClass("d-none")
+            //    $("#triggerAllOpen").removeClass("d-none")
+            //    $(".filter-submenu").addClass("d-none")
 
 
-            })
+            //})
         })
+        if (GetParam("polly")== "nouse") {
+            openAllFilters();
+        }
+        function openAllFilters() {
+            $(".trigger").each(function (i, j) {
+                j.click();
+            })
+        }
 
     </script>
 }

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.IO;
 namespace JobsAbility
 {
-    static class Config
+    public static class Config
     {
         private static Dictionary<string, string> dic = new Dictionary<string, string>();
         static Config()
