@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,17 +38,38 @@
                 <div class="theme-header clearfix">
                     <div class="navbar-header">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span><span class="lni-menu"></span><span class="lni-menu"></span><span class="lni-menu"></span></button>
-                        <a href="~/Home/index" class="navbar-brand"><img src="~/img/logo.png" alt="" style="
+                        <a href="~/Home/index" class="navbar-brand">
+                            <img src="~/img/logo.png" alt="" style="
     height: 55px;
-"></a>
+">
+                        </a>
                     </div>
                     <div class="collapse navbar-collapse" id="main-navbar">
                         <ul class="navbar-nav mr-auto w-100 justify-content-end pt-2">
                             <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Home</a>
+                                <a class="nav-link dropdown-toggle" href="~/home/index" aria-haspopup="true" aria-expanded="false">Home</a>
                             </li>
-                         
-                            <li class="nav-item"><a class="nav-link" href="login.html">Sign In</a></li>
+                            @if (Context.Session.GetString("Role") == "1")
+                            {//recruiter
+                                <li class="nav-item"><a class="nav-link" href="~/home/createJobs">Post a Job</a></li>
+                                <li class="nav-item"><a class="nav-link" href="~/home/ManageJobs">Posted Jobs</a></li>
+
+                            }
+                            else if (Context.Session.GetString("Role") == "2")
+                            {//Job Seeker
+                                <li class="nav-item"><a class="nav-link" href="~/home/MyJobs">Applied Jobs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="~/home/jobs">Browse Jobs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="~/Chat/Index">My Chat</a></li>
+
+                            }
+                            @if (string.IsNullOrWhiteSpace(Context.Session.GetString("UserId")))
+                            {
+                                <li class="nav-item"><a class="nav-link" href="~/home/login">Sign In</a></li>
+                            }
+                            else
+                            {
+                                <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Hi, @Context.Session.GetString("Name")</a></li>
+                            }
                             <li class="button-group mx-1">
                                 <a class="button btn btn-common py-1 px-3" href="javascript:void(0)" id="deaf">
                                 </a>
@@ -55,11 +77,11 @@
                             <li class="button-group mx-1">
                                 <a class="button btn btn-common px-3" href="javascript:void(0)" style="padding: 7px; color:white;">
                                     <div style="margin:5px">
-                                        <span id="pollyPlaying" class="no-polly" > <i class="fas fa-eye-slash" > </i > For Low Vision</span >
-                                        <span id="pollyStop" style="display:none;" > <i class="fas fa-stop-circle"></i> Stop</span >
+                                        <span id="pollyPlaying" class="no-polly"> <i class="fas fa-eye-slash"> </i> For Low Vision</span>
+                                        <span id="pollyStop" style="display:none;"> <i class="fas fa-stop-circle"></i> Stop</span>
                                     </div>
-                                    
-                                    
+
+
                                 </a>
                             </li>
                         </ul>

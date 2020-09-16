@@ -88,6 +88,7 @@ namespace JobsAbility.Controllers
                 {
                     HttpContext.Session.SetString("UserId", user.Id+"");
                     HttpContext.Session.SetString("Role", user.RoleId+"");
+                    HttpContext.Session.SetString("Name", user.Firstname+" "+user.Lastname);
                     if (user.RoleId == 1)
                     {
                         return RedirectToAction("managejobs");
@@ -195,6 +196,62 @@ namespace JobsAbility.Controllers
             return View();
         }
 
+        public IActionResult ManageApplicants(int id)
+        {
+            int userId = -1;
+            if (int.TryParse(HttpContext.Session.GetString("UserId"), out userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 1)
+            {
+                using (var db=new jobsDBContext())
+                {
+                    ViewBag.jobTitle = db.JobPostings.Where(a => a.Id == id).Select(a => a.Title).FirstOrDefault();
+                    var applicants = db.JobApplications.Include(a => a.Applicant).Include(a => a.Applicant.Disability).Where(a=>a.JobPostingId==id).Select(a => new ApplicantDTO {
+                        Id = a.Applicant.Id,
+                        Name = a.Applicant.Firstname + " " + a.Applicant.Lastname,
+                        DisabilityId = (a.Applicant.DisabilityId == null ? 4 : (int)a.Applicant.DisabilityId)
+                    }).ToList();
+                    return View(applicants);
+                }
+            }
+            else
+            {
+                return RedirectToAction("login");
+            }
+        }
+        
+        public IActionResult MyJobs()
+        {
+            int userId = -1;
+            if (int.TryParse(HttpContext.Session.GetString("UserId"), out userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 2)
+            {
+                using (var db = new jobsDBContext())
+                {
+                    var jobs = new List<JobDTO>();
+                    var jobposts = db.JobApplications.Include(a => a.JobPosting).Where(a => a.ApplicantId ==userId).Select(a=>a.JobPosting).ToList();
+                    foreach (var jobpost in jobposts)
+                    {
+                        var companyName = db.Users.Include(a => a.Company).Where(a => a.Id == jobpost.RecruiterId).Select(a => new { a.Company.Name, a.Company.Location }).FirstOrDefault();
+                        jobs.Add(new JobDTO
+                        {
+                            Id = jobpost.Id,
+                            Company = companyName.Name,
+                            Date = jobpost.AddedDate.ToShortDateString(),
+                            Details = jobpost.Details,
+                            LocationLink = companyName.Location,
+                            Title = jobpost.Title,
+                            isDeaf = jobpost.IsDeaf,
+                            isBlind = jobpost.IsBlind,
+                            isAll = jobpost.IsAll
+                        });
+                    } 
+                    return View(jobs);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        
         public IActionResult Privacy()
         {
             return View();

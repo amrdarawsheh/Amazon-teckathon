@@ -1,11 +1,6 @@
-﻿
+﻿@model List<JobDTO>
 @{
     ViewData["Title"] = "MyJobs";
-}
-
-
-@{
-    ViewData["Title"] = "ManageApplicants";
 }
 
 <div class="page-header">
@@ -59,94 +54,37 @@
                         </div><span>
                         </span>
                     </div>
+                    @foreach (var job in Model)
+                    {
+                        <div class="applications-content myJobs">
+                            <div class="row">
+                                <div class="col-11 applicantInfo">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center">
+                                            <h3 class="ApplicantName">@job.Title</h3>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-xs-12 text-center noPadding ApplicantDisability">
+                                            <p>@job.Company</p>
+                                        </div>
 
-                    <div class="applications-content myJobs">
-                        <div class="row">
-                            <div class="col-11 applicantInfo">
-                                <div class="row">
-                                    <div class="col-md-4 text-center">
-                                        <h3 class="ApplicantName">Designer</h3>
-                                    </div>
-                                    <div class="col-lg-2 col-md-4 col-xs-12 text-center noPadding ApplicantDisability">
-                                        <p>PlantInc</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>Nov 15th, 2018</p>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 27px;">
-                                        <p>Rejected</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-common log-btn contactApplicantBtn"><span text-index="6">Job Details</span></button>
+                                        <div class="col-md-2" style="padding-left: 27px;">
+                                            <p>Pending</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="~/home/JobDescription?id=@job.Id" class="btn btn-common log-btn contactApplicantBtn"><span>Job Details</span></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-1 EditApplicant">
+                                <div class="col-1 EditApplicant">
 
-                                <span class="btn btn-circle RemoveFromMyJobs">
-                                    <i class="lni lni-trash"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="applications-content myJobs">
-                        <div class="row">
-                            <div class="col-11 applicantInfo">
-                                <div class="row">
-                                    <div class="col-md-4 text-center">
-                                        <h3 class="ApplicantName">UX Design</h3>
-                                    </div>
-                                    <div class="col-lg-2 col-md-4 col-xs-12 text-center noPadding ApplicantDisability">
-                                        <p>TechInc</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>Jun 20th, 2019</p>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 27px;">
-                                        <p>Proccessing</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-common log-btn contactApplicantBtn"><span text-index="6">Job Details</span></button>
-                                    </div>
+                                    <span class="btn btn-circle RemoveFromMyJobs">
+                                        <i class="lni lni-trash"></i>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="col-1 EditApplicant">
-
-                                <span class="btn btn-circle RemoveFromMyJobs">
-                                    <i class="lni lni-trash"></i>
-                                </span>
-                            </div>
                         </div>
-                    </div>
-                    <div class="applications-content myJobs">
-                        <div class="row">
-                            <div class="col-11 applicantInfo">
-                                <div class="row">
-                                    <div class="col-md-4 text-center">
-                                        <h3 class="ApplicantName">Instructor</h3>
-                                    </div>
-                                    <div class="col-lg-2 col-md-4 col-xs-12 text-center noPadding ApplicantDisability">
-                                        <p>Mof School</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>Aug 25th, 2020</p>
-                                    </div>
-                                    <div class="col-md-2" style="padding-left: 27px;">
-                                        <p>Accepted</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-common log-btn contactApplicantBtn"><span text-index="6">Job Details</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-1 EditApplicant">
-                               
-                                <span class="btn btn-circle RemoveFromMyJobs">
-                                    <i class="lni lni-trash"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    }
+                    
                     <ul class="pagination justify-content-center mt-4">
                         <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i>prev</a></li>
                         <li><a href="#">1</a></li>

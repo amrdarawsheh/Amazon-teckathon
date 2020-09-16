@@ -123,12 +123,27 @@
         </div>
         <div class="message-input">
             <div class="wrap">
-                <form asp-action="Create" data-ajax-begin="clearInputField" data-ajax-complete="" data-ajax-fail="alert('fail')" data-ajax-success="sendMessage" data-ajax="true" data-ajax-method="POST">
+                <form id="chatForm" asp-action="Create" data-ajax-begin="clearInputField" data-ajax-complete="" data-ajax-fail="alert('fail')" data-ajax-success="sendMessage" data-ajax="true" data-ajax-method="POST">
                     <input type="hidden" name="FromId" value="@ViewBag.thisUserId" />
                     <input type="hidden" name="ToId" value="@ViewBag.toUserId" />
-                    <input id="msgTxt" type="text" name="MessageContent" placeholder="Write your message..." />
+                    @if (ViewBag.mode == 0)
+                    {
+                        <input id="msgTxt" type="text" name="MessageContent" placeholder="Write your message..." />
+                        <button class="submit"> <i class="fa fa-paper-plane" aria-hidden="true"> </i> </button>
+                    }
+                    else if (ViewBag.mode == 1)
+                    {
+                <div class="deafIframe text-center">
+                    <iframe src="https://mindrocketsapis.com/web/TranslateJSWithLabelBoosted.aspx?r=hello&render=1&w=200&h=200&speed=48&lang=ar&av=Jamal&cid=13223&srclabel=true" id="mr_sign_player999" width="200" height="200" frameborder="0" scrolling="no"></iframe>
+                    <br />
+                    <input type="hidden" name="MessageContent" id="msgTxt" value="" />
+                    <button id="prev" type="button" style="float:none;"> <i class="fas fa-arrow-left"></i></button>
+                    <button id="submitForm" type="button" class="submit" style="float:none;"> <i class="fa fa-paper-plane" aria-hidden="true"> </i> </button>
+                    <button id="repeat" type="button"  style="float:none;"> <i class="fas fa-redo-alt"></i></button>
+                    <button id="next" type="button"  style="float:none;"> <i class="fas fa-arrow-right"></i></button>
 
-                    <button class="submit"> <i class="fa fa-paper-plane" aria-hidden="true"> </i> </button>
+                </div>
+                    }
                 </form>
             </div>
         </div>
@@ -140,4 +155,33 @@
     <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/js/chat.js"></script>
     <script src="~/js/IntegerateSignalR.js"></script>
+    <script>
+        var replies = ["Hello", "What is the job exactly?", "Can I have a phone number?", "How many years of experience should I have?"]
+        var deafindex = 0;
+        $("#prev").click(function () {
+            --deafindex;
+            if (deafindex < 0) {
+                deafindex = 0;
+            }
+            var translateTemplate = "https://mindrocketsapis.com/web/TranslateJSWithLabelBoosted.aspx?r=" + replies[deafindex] + "&render=1&w=200&h=200&speed=48&lang=ar&av=Jamal&cid=13223&srclabel=true";
+            $("#mr_sign_player999").attr("src", translateTemplate);
+            
+        })
+        $("#next").click(function () {
+            ++deafindex;
+            if (deafindex == replies.length) {
+                deafindex = replies.length - 1;
+            }
+            var translateTemplate = "https://mindrocketsapis.com/web/TranslateJSWithLabelBoosted.aspx?r=" + replies[deafindex] + "&render=1&w=200&h=200&speed=48&lang=ar&av=Jamal&cid=13223&srclabel=true";
+            $("#mr_sign_player999").attr("src", translateTemplate);
+        })
+        $("#repeat").click(function () {
+            var translateTemplate = "https://mindrocketsapis.com/web/TranslateJSWithLabelBoosted.aspx?r=" + replies[deafindex] + "&render=1&w=200&h=200&speed=48&lang=ar&av=Jamal&cid=13223&srclabel=true";
+            $("#mr_sign_player999").attr("src", translateTemplate);
+        })
+        $("#submitForm").click(function () {
+            $("#msgTxt").val(replies[deafindex]);
+            $('#chatForm').trigger('submit');
+        })
+    </script>
 }

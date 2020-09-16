@@ -11,7 +11,7 @@ namespace JobsAbility.Controllers
     public class ChatController : Controller
     {
 
-        public IActionResult Index(int? toUserId)
+        public IActionResult Index(int? toUserId,int? mode)
         {
             
             using (var db = new jobsDBContext())
@@ -27,6 +27,7 @@ namespace JobsAbility.Controllers
                     var messages = db.Messages.Where(a => (a.FromId == userId && a.ToId == toUserId) || (a.FromId == toUserId && a.ToId == userId)).ToList();
                     ViewBag.thisUserId = userId;
                     ViewBag.toUserId = toUserId;
+                    ViewBag.mode = mode??0;
                     ViewBag.toName = db.Users.Where(a => a.Id == toUserId).Select(a=>a.Firstname+" "+a.Lastname).FirstOrDefault();
                     return View(messages);
                 }
