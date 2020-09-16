@@ -27,7 +27,7 @@ namespace JobsAbility.Controllers
                 var jobposts = db.JobPostings.ToList();
                 foreach (var jobpost in jobposts)
                 {
-                    var companyName = db.Users.Include(a => a.Company).Where(a => a.Id == jobpost.RecruiterId).Select(a => new { a.Company.Name, a.Company.Location }).FirstOrDefault();
+                    var companyName = db.Users.Include(a => a.Company).Where(a => a.Id == jobpost.RecruiterId).OrderByDescending(a=>a.Id).Select(a => new { a.Company.Name, a.Company.Location }).FirstOrDefault();
                     jobs.Add(new JobDTO
                     {
                         Id = jobpost.Id,
@@ -188,7 +188,7 @@ namespace JobsAbility.Controllers
                 JobPost.AddedDate = DateTime.Now;
                 db.JobPostings.Add(JobPost);
                 db.SaveChanges();
-                return View("ManageJobs");
+                return RedirectToAction("ManageJobs");
             }
         }
         public IActionResult Index()
