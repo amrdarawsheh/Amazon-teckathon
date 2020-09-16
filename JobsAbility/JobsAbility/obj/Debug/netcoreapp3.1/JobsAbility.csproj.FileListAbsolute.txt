@@ -875,3 +875,9 @@ C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Jobs
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cache
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\libman.json
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\libman.json
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ApplicantDetails.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageApplicants.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\MyJobs.cshtml.g.cs
