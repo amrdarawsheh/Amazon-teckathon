@@ -87,3 +87,41 @@ input[type=checkbox] {
 .highlight-reader {
     background-color: #e7e8e9;
 }
+
+.ApplicantDisability .btn-circle {
+    color: #5E35B1 !important;
+    background: #E1BEE7 !important;
+}
+
+.rejectApplicant {
+
+    border: 1px solid #ffa5a5;
+    background-color: #ffa5a5;
+    color: #232323;
+    font-weight: 400;
+    text-shadow: 0 0 2px #740000;
+}
+
+.acceptApplicant {
+    border: 1px solid #9aff95;
+    margin-bottom: 5px;
+    background-color: #9aff95;
+    color: #232323;
+    font-weight: 400;
+    text-shadow: 0 0 2px #37552b;
+}
+
+.applicantInfo {
+    padding-top: 22px;
+}
+
+.rejectApplicant:hover {
+    border-color: #d22e2e66;
+    box-shadow: 0px 0px 9px rgb(76 76 76 / 63%);
+    border: 1px solid #d22e2e66;
+}
+
+.acceptApplicant:hover {
+    box-shadow: 0px 0px 9px rgb(76 76 76 / 63%);
+    border: 1px solid #00800066;
+}

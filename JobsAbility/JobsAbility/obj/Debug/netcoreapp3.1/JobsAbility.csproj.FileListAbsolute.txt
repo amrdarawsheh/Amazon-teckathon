@@ -868,3 +868,5 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razo
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Signup.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Apply.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageApplicants.cshtml.g.cs
+C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\ApplicantDetails.cshtml.g.cs

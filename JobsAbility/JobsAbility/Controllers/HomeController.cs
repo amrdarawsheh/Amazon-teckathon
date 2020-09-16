@@ -39,6 +39,14 @@ namespace JobsAbility.Controllers
         {
             return View();
         }
+        public IActionResult ManageApplicants()
+        {
+            return View();
+        }
+        public IActionResult ApplicantDetails()
+        {
+            return View();
+        }
         public IActionResult Apply()
         {
             return View();
