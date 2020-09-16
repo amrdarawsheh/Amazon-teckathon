@@ -119,7 +119,7 @@ namespace JobsAbility.Controllers
                     var jobapp = new JobApplications
                     {
                         JobPostingId = id,
-                        ApplicantId = id,
+                        ApplicantId = userId,
                     };
                     db.JobApplications.Add(jobapp);
                     db.SaveChanges();
