@@ -1,4 +1,4 @@
-﻿
+﻿@model List<JobsAbility.Models.JobDTO>
 @{
     ViewData["Title"] = "Jobs";
 }
@@ -161,55 +161,42 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-12 col-xs-12">
-                <a class="job-listings" href="job-details.html">
+                @foreach (var job in Model)
+                {
+                <a class="job-listings" href="~/home/jobdescription?id=@job.Id">
                     <div class="row mt-3 mb-3">
                         <div class="col-lg-3 col-md-4 col-xs-12">
                             <div class="job-company-logo"><img src="assets/img/features/img1.png" alt=""></div>
                             <div class="job-details text-center">
-                                <h3 class="text-left">App Developer</h3><span class="company-neme text-center">AmazeSoft</span>
+                                <h3 class="text-left">@job.Title</h3><span class="company-neme text-center">@job.Company</span>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-xs-12 text-center noPadding">
-                            <span class="btn btn-circle">
-                                <i class="fas fa-deaf"><span class="d-none read-polly">Job targets deaf</span></i>
-                            </span> <span class="btn btn-circle"><i class="far fa-eye-slash"><span class="d-none read-polly">Job targets low vision</span></i></span>
+                        <div class="col-lg-3 col-md-4 col-xs-12 text-center noPadding">
+                            @if (job.isDeaf)
+                            {
+                                <span class="btn btn-circle">
+                                    <i class="fas fa-deaf"><span class="d-none read-polly">Job targets deaf</span></i>
+                                </span>
+                            }
+                            @if (job.isBlind)
+                            {
+                                <span class="btn btn-circle">
+                                    <i class="far fa-eye-slash"><span class="d-none read-polly">Job targets low vision</span></i>
+                                </span>
+                            }
+                            @if (job.isAll)
+                            {
+                                <span class="btn btn-circle">
+                                    <i class="fas fa-ellipsis-h"><span class="d-none read-polly">Job targets other disabilites</span></i>
+                                </span>
+                            }
                         </div>
                         <div class="col-lg-2 col-md-2 col-xs-12 text-right noPadding"><span class="btn-full-time">Full Time</span></div>
-                        <div class="col-lg-3 col-md-2 col-xs-12 text-right"><span class="btn-apply">Apply Now</span></div>
-                    </div>
-                </a><a class="job-listings" href="job-details.html">
-                    <div class="row mt-3 mb-3">
-                        <div class="col-lg-3 col-md-4 col-xs-12">
-                            <div class="job-company-logo"><img src="assets/img/features/img1.png" alt=""></div>
-                            <div class="job-details text-center">
-                                <h3 class="text-left">App Developer</h3><span class="company-neme text-center">AmazeSoft</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-xs-12 text-center noPadding">
-                            <span class="btn btn-circle">
-                                <i class="fas fa-deaf"><span class="d-none read-polly">Job targets deaf</span></i>
-                            </span> <span class="btn btn-circle"><i class="far fa-eye-slash"><span class="d-none read-polly">Job targets low vision</span></i></span>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-xs-12 text-right noPadding"><span class="btn-full-time">Full Time</span></div>
-                        <div class="col-lg-3 col-md-2 col-xs-12 text-right"><span class="btn-apply">Apply Now</span></div>
-                    </div>
-                </a><a class="job-listings" href="job-details.html">
-                    <div class="row mt-3 mb-3">
-                        <div class="col-lg-3 col-md-4 col-xs-12">
-                            <div class="job-company-logo"><img src="assets/img/features/img1.png" alt=""></div>
-                            <div class="job-details text-center">
-                                <h3 class="text-left">App Developer</h3><span class="company-neme text-center">AmazeSoft</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-xs-12 text-center noPadding">
-                            <span class="btn btn-circle">
-                                <i class="fas fa-deaf"><span class="d-none read-polly">Job targets deaf</span></i>
-                            </span> <span class="btn btn-circle"><i class="far fa-eye-slash"><span class="d-none read-polly">Job targets low vision</span></i></span>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-xs-12 text-right noPadding"><span class="btn-full-time">Full Time</span></div>
-                        <div class="col-lg-3 col-md-2 col-xs-12 text-right"><span class="btn-apply">Apply Now</span></div>
+                        <div class="col-lg-4 col-md-2 col-xs-12 text-right"><span class="btn-apply">More Details..</span></div>
                     </div>
                 </a>
+                }
+                
             </div>
 
 

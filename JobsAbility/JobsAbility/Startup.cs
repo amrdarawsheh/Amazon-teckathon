@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobsAbility.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,7 +25,14 @@ namespace JobsAbility
         public void ConfigureServices(IServiceCollection services)
         {
             var mvcBuilder = services.AddControllersWithViews();
-            
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials()
+                       .WithOrigins("*");
+            }));
 #if DEBUG
             mvcBuilder.AddRazorRuntimeCompilation();
 #endif
@@ -35,6 +43,7 @@ namespace JobsAbility
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,15 +59,16 @@ namespace JobsAbility
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+          
             app.UseAuthorization();
             app.UseSession();
+            app.UseCors("MyPolicy");
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub>("/Chat");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

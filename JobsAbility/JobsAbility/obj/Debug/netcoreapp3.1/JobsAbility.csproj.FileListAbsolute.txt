@@ -806,9 +806,6 @@ C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\runt
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\EF.cshtml.g.cs
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\AWSSDK.Polly.dll
-C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.csproj.CoreCompileInputs.cache
-C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cs
-C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cache
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\Polly.cshtml.g.cs
 C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Test\MRI.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\aws-beanstalk-tools-defaults.json
@@ -868,3 +865,13 @@ C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razo
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Signup.cshtml.g.cs
 C:\awsTeckathon\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Apply.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Apply.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\Signup.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Home\TypicalChat.cshtml.g.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.csproj.CoreCompileInputs.cache
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cs
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\JobsAbility.MvcApplicationPartsAssemblyInfo.cache
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\bin\Debug\netcoreapp3.1\libman.json
+C:\Competitions\JobsAbility\JobsAbility\JobsAbility\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs

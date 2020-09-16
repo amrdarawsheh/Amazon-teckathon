@@ -22,6 +22,7 @@ namespace JobsAbility.Models
         public virtual DbSet<JobApplications> JobApplications { get; set; }
         public virtual DbSet<JobPostings> JobPostings { get; set; }
         public virtual DbSet<JobType> JobType { get; set; }
+        public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<SentenceVoice> SentenceVoice { get; set; }
         public virtual DbSet<SubCategories> SubCategories { get; set; }
@@ -101,6 +102,8 @@ namespace JobsAbility.Models
 
             modelBuilder.Entity<JobPostings>(entity =>
             {
+                entity.Property(e => e.AddedDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Details)
                     .IsRequired()
                     .HasColumnType("ntext");
@@ -108,6 +111,8 @@ namespace JobsAbility.Models
                 entity.Property(e => e.DetailsText)
                     .IsRequired()
                     .HasColumnType("ntext");
+
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -130,6 +135,13 @@ namespace JobsAbility.Models
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<Messages>(entity =>
+            {
+                entity.Property(e => e.MessageContent).IsRequired();
+
+                entity.Property(e => e.SendDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Roles>(entity =>

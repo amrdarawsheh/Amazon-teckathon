@@ -21,6 +21,8 @@ namespace JobsAbility.Models
         public bool IsBlind { get; set; }
         public bool IsAll { get; set; }
         public string DetailsText { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime AddedDate { get; set; }
 
         public virtual Categories Category { get; set; }
         public virtual SubCategories SubCategory { get; set; }

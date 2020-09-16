@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using JobsAbility.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.EntityFrameworkCore;
 namespace JobsAbility.Controllers
 {
     public class HomeController : Controller
@@ -21,35 +21,146 @@ namespace JobsAbility.Controllers
         }
         public IActionResult Jobs()
         {
-            return View();
+            using (var db = new jobsDBContext())
+            {
+                var jobs = new List<JobDTO>();
+                var jobposts = db.JobPostings.ToList();
+                foreach (var jobpost in jobposts)
+                {
+                    var companyName = db.Users.Include(a => a.Company).Where(a => a.Id == jobpost.RecruiterId).Select(a => new { a.Company.Name, a.Company.Location }).FirstOrDefault();
+                    jobs.Add(new JobDTO
+                    {
+                        Id = jobpost.Id,
+                        Company = companyName.Name,
+                        Date = jobpost.AddedDate.ToShortDateString(),
+                        Details = jobpost.Details,
+                        LocationLink = companyName.Location,
+                        Title = jobpost.Title,
+                        isDeaf = jobpost.IsDeaf,
+                        isBlind = jobpost.IsBlind,
+                        isAll = jobpost.IsAll
+                    });
+                }
+                return View(jobs);
+            }
         }
-        public IActionResult JobDescription()
+        public IActionResult JobDescription(int id)
         {
-            return View();
+            using (var db=new jobsDBContext())
+            {
+                var jobpost = db.JobPostings.FirstOrDefault(a=>a.Id==id);
+                var companyName = db.Users.Include(a => a.Company).Where(a => a.Id == jobpost.RecruiterId).Select(a => new { a.Company.Name, a.Company.Location}).FirstOrDefault();
+                var jobDTO = new JobDescriptionDTO
+                {
+                    Id = jobpost.Id,
+                    Company = companyName.Name,
+                    Date = jobpost.AddedDate.ToShortDateString(),
+                    Details = jobpost.Details,
+                    LocationLink = companyName.Location,
+                    Title = jobpost.Title
+                };
+                return View(jobDTO);
+            }
         }
-        public IActionResult TypicalChat()
-        {
-            return View();
-        }
+      
         public IActionResult Login()
         {
             return View();
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("UserId");
+            HttpContext.Session.Remove("Role");
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult Login(string email,string password)
+        {
+            using (var db = new jobsDBContext())
+            {
+                var user = db.Users.FirstOrDefault(a=>a.Email.ToLower()==email.ToLower()&&a.Password==password);
+                if (user == null)
+                {
+                    ViewBag.error = "error";
+                    return View();
+                }
+                else
+                {
+                    HttpContext.Session.SetString("UserId", user.Id+"");
+                    HttpContext.Session.SetString("Role", user.RoleId+"");
+                    if (user.RoleId == 1)
+                    {
+                        return RedirectToAction("managejobs");
+                    }
+                    else if(user.RoleId == 2)
+                    {
+                        return RedirectToAction("jobs");
+                    }
+                    else
+                    {
+                        return RedirectToAction("jobs");
+                    }
+                }
+            }
         }
         public IActionResult Signup()
         {
             return View();
         }
-        public IActionResult Apply()
+        [HttpPost]
+        public IActionResult Apply(int id)
         {
-            return View();
+            int userId = -1;
+            if (int.TryParse(HttpContext.Session.GetString("UserId"), out userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 2)
+            {
+                using (var db = new jobsDBContext())
+                {
+                    var jobapp = new JobApplications
+                    {
+                        JobPostingId = id,
+                        ApplicantId = id,
+                    };
+                    db.JobApplications.Add(jobapp);
+                    db.SaveChanges();
+                    return View();
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
         }
         public IActionResult ManageJobs()
         {
-            return View();
+            int userId = -1;
+            if (int.TryParse(HttpContext.Session.GetString("UserId"), out userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 1)
+            {
+                using (var db = new jobsDBContext())
+                {
+                    var jobPosts = new List<ManageJobDTO>();
+                    var jobposts = db.JobPostings.Where(a=>a.RecruiterId==userId).ToList();
+                    foreach (var jobPost in jobposts)
+                    {
+                        int numOfApplicants = db.JobApplications.Where(a => a.JobPostingId == jobPost.Id).Count();
+                        jobPosts.Add(new ManageJobDTO
+                        {
+                            Id=jobPost.Id,
+                            NoApp=numOfApplicants,
+                            Status=jobPost.IsActive?"Active":"Inactive",
+                            Title=jobPost.Title
+                        });
+                    }
+                    return View(jobPosts);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
         public IActionResult CreateJobs()
         {
-
             if (int.TryParse(HttpContext.Session.GetString("UserId"), out int userId) && int.TryParse(HttpContext.Session.GetString("Role"), out int roleId) && roleId == 1) 
             {
                 List<SelectListItem> categories = new List<SelectListItem>();
@@ -72,6 +183,8 @@ namespace JobsAbility.Controllers
             {
                 var userId =int.Parse(HttpContext.Session.GetString("UserId"));
                 JobPost.RecruiterId = userId;
+                JobPost.IsActive = true;
+                JobPost.AddedDate = DateTime.Now;
                 db.JobPostings.Add(JobPost);
                 db.SaveChanges();
                 return View("ManageJobs");

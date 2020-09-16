@@ -20,15 +20,22 @@
             <div class="col-lg-5 col-md-6 col-xs-12">
                 <div class="page-login-form box">
                     <h3>Login</h3>
-                    <form class="login-form">
+                    @using (Html.BeginForm("login", "home", FormMethod.Post, new { @class = "login-form" }))
+                    {
                         <div class="form-group">
-                            <div class="input-icon"><i class="lni-user"></i><input type="text" id="sender-email" class="form-control" name="email" placeholder="Username"></div>
+                            <div class="input-icon"><i class="lni-user"></i><input type="text" id="sender-email" class="form-control" name="email" placeholder="Email"></div>
                         </div>
                         <div class="form-group">
-                            <div class="input-icon"><i class="lni-lock"></i><input type="password" class="form-control" placeholder="Password"></div>
+                            <div class="input-icon"><i class="lni-lock"></i><input type="password" class="form-control" name="password" placeholder="Password"></div>
                         </div>
-                        <button class="btn btn-common log-btn">Submit</button>
-                    </form>
+                        @if (ViewBag.error != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                Incorrect Email or passsword.
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-common log-btn">Submit</button>
+                    }
                     <ul class="form-links">
                         <li class="text-center"><a href="register.html">Don't have an account?</a></li>
                     </ul>

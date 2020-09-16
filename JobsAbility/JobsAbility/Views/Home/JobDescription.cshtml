@@ -1,4 +1,4 @@
-﻿
+﻿@model JobsAbility.Models.JobDescriptionDTO
 @{
     ViewData["Title"] = "JobDescription";
 }
@@ -10,9 +10,9 @@
                 <div class="breadcrumb-wrapper">
 
                     <div class="content">
-                        <h3 class="product-title">Hiring UI Designer</h3>
-                        <p class="brand">UIDeck Inc.</p>
-                        <div class="tags"><span><i class="lni-map-marker"></i>New York</span><span><i class="lni-calendar"></i>Posted 26 June, 2020</span></div>
+                        <h3 class="product-title">@Model.Title</h3>
+                        <p class="brand">@Model.Company</p>
+                        <div class="tags"><span><i class="lni-calendar"></i>Posted @Model.Date</span></div>
                     </div>
                 </div>
             </div>
@@ -25,27 +25,12 @@
         <div class="row justify-content-between">
             <div class="col-lg-8 col-md-12 col-xs-12">
                 <div class="content-area">
-                    <h4>Job Description</h4>
-                    <p>
-                        We are offering a position for a UI Designer role, you will be responsible for presenting our latest products in a way that is attractive and convenient for users. You will be responsible for creating interactive program interfaces that enhance a customer's experience and facilitate an enjoyable experience on the business's website.
-                        You also need to have a working understanding of coding and transfer the products's strength through the interface.
-
-                    </p>
-                    <p>
-
-                        As the position combines elements of programming, psychology and digital design, we offer a free two-month specialized training program in all these areas for our new employees, to ensure the delivery of quality products and services. 
-                        A bachelor's degree in Computer Science, Web Development, Graphic Design or related field is essential. The best candidates would be individuals who enjoying bringing abstract concepts to life and with an understanding of clients needs and interactions with the website.
-                    </p>
-                    <h5>What You Need for this Position</h5>
-                    <ul>
-                        <li>- Front-End programming skills</li>
-                        <li>- Good with visual design programs (e.g. Photoshop)</li>
-                        <li>- Understanding of UI design concept </li>
-
-                    </ul>
-                    <h5>How To Apply</h5>
-                    <p>Please provide us with your resume through the JobsAbility Portal, along with any projects or designs you might've worked on in the past</p><a href="#"
-                                                                                                                                                                                                                                                     class="btn btn-common">Apply job</a>
+                    @Html.Raw(Model.Details)
+                    @using (Html.BeginForm("Apply", "home", FormMethod.Post))
+                    {
+                        <input name="id" type="hidden" value="@Model.Id"/>
+                        <button type="submit" class="btn btn-common">Apply job</button>
+                    }
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-xs-12">
@@ -54,8 +39,7 @@
                         <h3>Job Location</h3>
                         <div class="maps">
                             <div id="map" class="map-full">
-                                <iframe src="http://ditu.google.cn/maps/embed?pb=!1m18!1m12!1m3!1d405691.57240383344!2d-122.3212843181106!3d37.40247298383319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb68ad0cfc739%3A0x7eb356b66bd4b50e!2sSilicon+Valley%2C+CA%2C+USA!5e0!3m2!1sen!2sbd!4v1538319316724"
-                                        allowfullscreen=""></iframe>
+                                <iframe src="@Model.LocationLink" allowfullscreen=""></iframe>
                             </div>
                         </div>
                     </div>

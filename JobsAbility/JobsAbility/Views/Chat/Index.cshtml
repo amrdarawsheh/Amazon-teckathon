@@ -1,0 +1,143 @@
+﻿@model List<Messages>
+@{
+    ViewData["Title"] = "Chat";
+
+}
+<script>
+    var thisUserId =@ViewBag.thisUserId ;
+    var toUserId =@ViewBag.toUserId;
+    var toName = "@ViewBag.toName";
+</script>
+<div id="frame">
+    <div id="sidepanel">
+        <div id="profile">
+            <div class="wrap">
+                <img id="profile-img" src="~/img/avatarYou.png" class="online" alt="" />
+                <p> You </p>
+
+            </div>
+        </div>
+        <div id="search">
+            <label for=""> <i class="fa fa-search" aria-hidden="true"> </i> </label>
+            <input type="text" placeholder="Search contacts..." />
+        </div>
+        <div id="contacts">
+            <ul>
+
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status online"> </span>
+                        <img src="~/img/avatarChat.png" alt="" />
+                        <div class="meta">
+                            <p class="name"> XYZ</p>
+                            <p class="preview"> Please let us know soon.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact active">
+                    <div class="wrap">
+                        <span class="contact-status busy"> </span>
+                        <img src="~/img/avatarChat.png" alt="" />
+                        <div class="meta">
+                            <p class="name"> DesignComp</p>
+                            <p class="preview">You're welcome, we're here if you have any questions.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status away"> </span>
+                        <img src="~/img/avatarChat.png" alt="" />
+                        <div class="meta">
+                            <p class="name"> UI Inc</p>
+                            <p class="preview"> Please send us your previous work, we will be wating our reply!</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status online"> </span>
+                        <img src="~/img/avatarChat.png" alt="" />
+                        <div class="meta">
+                            <p class="name">FlowerPots</p>
+                            <p class="preview"> Thank you for contacting us.</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status"> </span>
+                        <img src="~/img/avatarChat.png" alt="" />
+                        <div class="meta">
+                            <p class="name">WaiInc</p>
+                            <p class="preview"> <span> You:</span> I sent you my CV, thank you</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="bottom-bar">
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="contact-profile">
+            <img src="~/img/avatarChat.png" alt="" />
+            <p>DesignComp</p>
+            <div class="social-media">
+                <i class="fa fa-facebook" aria-hidden="true"> </i>
+                <i class="fa fa-twitter" aria-hidden="true"> </i>
+                <i class="fa fa-instagram" aria-hidden="true"> </i>
+            </div>
+        </div>
+
+        <div class="messages">
+            <ul id="messagesCont">
+                @foreach (var message in Model)
+                {
+                    @if (message.FromId== ViewBag.thisUserId)
+                    {
+                        <li class="sent">
+                            <div>
+                                <div>Me</div>
+                                <img src="~/img/avatarYou.png" alt="" />
+                                <p> @message.MessageContent</p>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="replies">
+                            <div class="float-right">
+                                <div class="text-center">@ViewBag.toName</div>
+                                <img src="~/img/avatarChat.png" alt="" />
+                                <p> @message.MessageContent</p>
+                            </div>
+                        </li>
+                    }
+
+                }
+
+            </ul>
+        </div>
+        <div class="message-input">
+            <div class="wrap">
+                <form asp-action="Create" data-ajax-begin="clearInputField" data-ajax-complete="" data-ajax-fail="alert('fail')" data-ajax-success="sendMessage" data-ajax="true" data-ajax-method="POST">
+                    <input type="hidden" name="FromId" value="@ViewBag.thisUserId" />
+                    <input type="hidden" name="ToId" value="@ViewBag.toUserId" />
+                    <input id="msgTxt" type="text" name="MessageContent" placeholder="Write your message..." />
+
+                    <button class="submit"> <i class="fa fa-paper-plane" aria-hidden="true"> </i> </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/signalr.js/signalr.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script src="~/js/IntegerateSignalR.js"></script>
+}
