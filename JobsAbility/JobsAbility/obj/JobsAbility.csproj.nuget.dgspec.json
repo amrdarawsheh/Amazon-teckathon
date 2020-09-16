@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Competitions\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj": {}
+    "C:\\awsTeckathon\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj": {}
   },
   "projects": {
-    "C:\\Competitions\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj": {
+    "C:\\awsTeckathon\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Competitions\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj",
+        "projectUniqueName": "C:\\awsTeckathon\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj",
         "projectName": "JobsAbility",
-        "projectPath": "C:\\Competitions\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj",
-        "packagesPath": "C:\\Users\\GTS\\.nuget\\packages\\",
-        "outputPath": "C:\\Competitions\\JobsAbility\\JobsAbility\\JobsAbility\\obj\\",
+        "projectPath": "C:\\awsTeckathon\\JobsAbility\\JobsAbility\\JobsAbility\\JobsAbility.csproj",
+        "packagesPath": "C:\\Users\\Alina.A\\.nuget\\packages\\",
+        "outputPath": "C:\\awsTeckathon\\JobsAbility\\JobsAbility\\JobsAbility\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\GTS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Alina.A\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -99,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
